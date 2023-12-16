@@ -2,35 +2,42 @@ const button1 = document.querySelector('#btn-1')
 const button2 = document.querySelector('#btn-2')
 const button3 = document.querySelector('#btn-3')
 const button4 = document.querySelector('#btn-4')
-var animationId;
+let animationId;
 
 button1.addEventListener('click', () => 
-{ button1.style.backgroundColor = 'red';
+{ 
+cancelAnimationFrame(animationId);  
+button1.style.backgroundColor = 'red';
 button2.disabled = true;
 button3.disabled = true;
 button4.style.backgroundColor = 'Lightgreen';
 })
 
 button2.addEventListener('click', () => 
-{ button2.style.backgroundColor = 'red';
+{ 
+cancelAnimationFrame(animationId);  
+button2.style.backgroundColor = 'red';
 button1.disabled = true;
 button3.disabled = true;
 button4.style.backgroundColor = 'Lightgreen';
 })
 
 button3.addEventListener('click', () => 
-{ button3.style.backgroundColor = 'red';
+{ 
+cancelAnimationFrame(animationId);
+button3.style.backgroundColor = 'red';
 button1.disabled = true;
 button2.disabled = true;
 button4.style.backgroundColor = 'Lightgreen';
 })
 
 button4.addEventListener('click', () => {
+  cancelAnimationFrame(animationId);
   button4.style.backgroundColor = 'Lightgreen';
   button1.disabled = true;
   button2.disabled = true;
   button3.disabled = true;
-  cancelAnimationFrame(animationId);
+
 });
 document.addEventListener('DOMContentLoaded', function () {
   const progressBar = document.getElementById('progress');
@@ -54,6 +61,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
   startTimer(10000); // 10 seconds
 });
-function freezeProgressBar() {
-  cancelAnimationFrame(animationId);
-}

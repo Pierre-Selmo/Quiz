@@ -126,5 +126,5 @@ body
         height: 100%;
         background-color: #4caf50;
         width: 0;
-        transition: width 1s linear;
+        transition: width 0s linear;
       }
